@@ -10,10 +10,13 @@ namespace CalculadoraCDB.API.Controllers
     [ApiController]
     public class CalculadoraController : ControllerBase
     {
+        private readonly ILogger<CalculadoraController> _logger;
         private readonly ICalcularCdbService _calcularCDBService;
 
-        public CalculadoraController(ICalcularCdbService calcularCDBService)
+        public CalculadoraController(ILogger<CalculadoraController> logger,
+            ICalcularCdbService calcularCDBService)
         {
+            _logger = logger;
             _calcularCDBService = calcularCDBService;
         }
 
@@ -22,14 +25,22 @@ namespace CalculadoraCDB.API.Controllers
         [HttpPost]
         public IActionResult CalcularCDB(AplicacaoDto inputModel) 
         {
-            var result = _calcularCDBService.CalcularCDB(inputModel);
-
-            if(result == null) 
+            try
             {
-                return NotFound();
-            }
+                var result = _calcularCDBService.CalcularCDB(inputModel);
 
-            return Ok(result);
+                if(result == null) 
+                {
+                    return NotFound();
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex )
+            {
+                _logger.LogError(ex, "Erro ao caluclar CDB {0}", ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex);
+            }
         }
 
     }

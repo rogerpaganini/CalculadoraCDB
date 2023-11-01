@@ -45,7 +45,7 @@ namespace CalculadoraCDB.TesteUnitario.Application.Services
         [Theory]
         [InlineData(145.6785)]
         [InlineData(121.1253)]
-        [InlineData(345.65)]
+        [InlineData(345.651)]
         [InlineData(12987.682)]
         public void CalcularCDB_ArredondaValorBrutoCom2CasasDecimais(double valorInvestimento)
         {
