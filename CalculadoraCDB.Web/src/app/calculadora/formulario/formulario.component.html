@@ -1,0 +1,64 @@
+<h2>Calculadora de Investimento - CDB</h2>
+
+<form [formGroup]="formAplicacao" (ngSubmit)="onSubmit()" #formDir="ngForm">
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="inputVlAplicacao">Para começar, qual valor você gostaria de investir?</label>
+                <input required type="text" 
+                       class="form-control"  
+                       name="inputVlAplicacao" 
+                       id="inputVlAplicacao" 
+                       formControlName="valorAplicacao" 
+                       currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                />
+            </div>
+            <div *ngIf="valorAplicacao.invalid && formDir.submitted" class="validation-error">
+                <p>O valor da aplicação não pode ser vazio ou igual 0.</p>
+                </div>
+        </div>
+        <div class="col">
+            <div class="form-group" *ngIf = "visivel">
+                <label for="inputVlBruto">Em {{aplicacao.prazo}} meses você teria</label>
+                <input type="text" 
+                       class="form-control"  
+                       name="inputVlBruto" 
+                       id="inputVlBruto" 
+                       formControlName="valorBruto" 
+                       readonly="readonly"
+                       currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                />
+            </div>            
+        </div>
+
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="inputPrazo">Quanto tempo deixaria seu dinheiro investido?(MÊS)</label>
+                <input required type="number" pattern="[0-9]*" class="form-control"  name="inputPrazo" id="inputPrazo" formControlName="prazo">
+            </div>
+              <div *ngIf="prazo.invalid && formDir.submitted" class="validation-error">
+                <p>O prazo dever ser preenchido e maior que 1.</p>
+              </div>
+        </div>
+        <div class="col">
+            <div class="form-group" *ngIf="visivel">
+                <label for="inputVlLiquido">Valor líquido com os impostos descontados</label>
+                <input type="text" 
+                       class="form-control"  
+                       name="inputVlLiquido" 
+                       id="inputVlLiquido" 
+                       formControlName="valorLiquido" 
+                       readonly="readonly"
+                       currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                />
+            </div>
+        </div>
+    </div> 
+
+    <input type="submit" class="btn btn-primary mt-4" value="Simular">    
+    <button style="margin-left: 10px;" class="btn btn-secondary mt-4" (click)="Limpar()" *ngIf="visivel">Limpar</button>    
+</form>
