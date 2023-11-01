@@ -1,6 +1,6 @@
 # Projeto Calculadora CDB
 
-Esse projeto simula uma calculadora de investimento CDB, onde o usuário informa o valor desejado da aplicação e a quantidade de meses, retornando o total do valor bruto e o valor liquido menos os impostos.
+Esse projeto simula uma calculadora de investimento CDB, onde o usuário informa o valor desejado da aplicação e a quantidade de meses, retornando o valor total bruto e o valor liquido menos os impostos.
 
 A solução é composta por uma API backend e uma aplicação web.
 
