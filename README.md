@@ -23,7 +23,8 @@ O CDB funciona como um empréstimo do seu dinheiro para uma instituição bancá
 
 ## Servidor de desenvolvimento 
 - Clone o repositório para sua máquina local.
-- Abra a solution com o Visual Studio e rode o projeto que irá abrir o Swagger da Api.
+- Abra a solution "CalculadoraCDB.sln" com o Visual Studio e rode o projeto.
+- Irá abrir o Swagger da Api.
 
 ## Servidor de desenvolvimento testes de unidade
 - No menu superior do Visual Studio, clique em Teste - Executar todo os testes.
@@ -35,8 +36,9 @@ O CDB funciona como um empréstimo do seu dinheiro para uma instituição bancá
 - VS Code
 
 ### Servidor de desenvolvimento front-end
+- Abra a pasta "CalculadoraCDB.Web" no VS Code.
 - Na aba "Terminal", clique na opção "New Terminal". Em seguida digite o comando "npm install" para instalar todas as dependências do projeto.
-- Execute ng serve para um servidor de desenvolvimento. Navegue para http://localhost:4200/
+- Execute ng serve para rodar o projeto. Navegue para http://localhost:4200/
 
 ### Frontend executando testes de unidade
 - Na aba Terminal execute ng test para executar os testes unitários via Karma
