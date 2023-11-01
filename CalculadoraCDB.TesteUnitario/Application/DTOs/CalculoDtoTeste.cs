@@ -39,24 +39,7 @@ namespace CalculadoraCDB.TesteUnitario.Application.DTOs
             Assert.Equal("O prazo do investimento deve ser ser maior que um.", exception.Message);
 
 
-        }
-
-
-        [Fact]
-        public void ValidarAplicationDTO_ValorAplicadoEQuantidadeMesesCorretos_RetornarValidacaoComSucesso()
-        {
-            var aplicacaoDto = new AplicacaoDto
-            {
-                ValorAplicado = 150,
-                QuantidadeMeses = 6
-            };
-
-            // act & assert
-            aplicacaoDto.RetornarErroSeForInvalido();
-            Assert.Equal("O valor do investimento deve ser maior que zero.", exception.Message);
-
-
-        }
+        }               
 
     }
 }

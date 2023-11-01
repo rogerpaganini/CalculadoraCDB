@@ -18,10 +18,10 @@ namespace CalculadoraCDB.TesteUnitario.Application.Services
 
         [Theory]
         [InlineData(1000,3)]
-        [InlineData(1000, 4)]
-        [InlineData(1000, 5)]
-        [InlineData(1000, 6)]
-        [InlineData(1000, 21)]
+        [InlineData(2000, 4)]
+        [InlineData(3000, 5)]
+        [InlineData(5000, 6)]
+        [InlineData(8000, 21)]
         public void CalcularCDB_CalcularInvestimento_DeAcordoComQuantidadedeMeses(double valor, int quantidadeMeses)
         {
             //arrange
@@ -44,8 +44,8 @@ namespace CalculadoraCDB.TesteUnitario.Application.Services
 
         [Theory]
         [InlineData(145.6785)]
-        [InlineData(121.123)]
-        [InlineData(345.654)]
+        [InlineData(121.1253)]
+        [InlineData(345.65)]
         [InlineData(12987.682)]
         public void CalcularCDB_ArredondaValorBrutoCom2CasasDecimais(double valorInvestimento)
         {
